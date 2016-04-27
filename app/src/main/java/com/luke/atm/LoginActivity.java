@@ -1,5 +1,6 @@
 package com.luke.atm;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         findViews();
+        String userId = getSharedPreferences("atm", MODE_PRIVATE).getString("USERID", "");
+        et_id.setText(userId);
     }
 
     private void findViews() {
@@ -30,7 +33,10 @@ public class LoginActivity extends AppCompatActivity {
         String userPrd = et_pwd.getText().toString();
         if (userId.equals("jack") && userPrd.equals("1234")){
             Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
-            setResult(RESULT_OK);
+            Intent intent = new Intent();
+            intent.putExtra("USERID",userId);
+            intent.putExtra("USERPWD", userPrd);
+            setResult(RESULT_OK, intent);
             finish();
         }
     }
