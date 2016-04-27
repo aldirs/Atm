@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int FUNC_LOGIN = 6;
     boolean logon = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,15 +16,15 @@ public class MainActivity extends AppCompatActivity {
 
         if (!logon){
             Intent intent = new Intent(this, LoginActivity.class);
-            startActivityForResult(intent, 6);
+            startActivityForResult(intent, FUNC_LOGIN);
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 6){
+        if (requestCode == FUNC_LOGIN){
             if (resultCode == RESULT_OK){
-                Toast.makeText(this, "Result OK", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.Result_OK, Toast.LENGTH_LONG).show();
             }else {
                 finish();
             }

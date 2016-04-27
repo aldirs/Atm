@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Atm</string>
+    <string name="Result_OK">Result OK</string>
 </resources>
