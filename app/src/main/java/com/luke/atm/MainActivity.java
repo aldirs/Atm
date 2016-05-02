@@ -7,12 +7,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private static final int FUNC_LOGIN = 6;
     boolean logon = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, FUNC_LOGIN);
         }
         //startActivity(new Intent(this, TestActivity.class));
+        findviews();
+        ListView lv = (ListView) findViewById(R.id.listView);
+        String[] data = {"AAAA", "BBBB", "CCCC","DDDD"};
+        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, data);
+        lv.setAdapter(arrayAdapter);
+
+    }
+
+    private void findviews() {
+
 
     }
 
