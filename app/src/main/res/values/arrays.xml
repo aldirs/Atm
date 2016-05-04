@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="spinner_array">
+        <item>TEST</item>
+        <item>TEST1</item>
+        <item>TEST2</item>
+        <item>TEST3</item>
+        <item>TEST4</item>
+        <item>TEST5</item>
+        <item>TEST6</item>
+    </array>
+</resources>
