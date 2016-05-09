@@ -39,6 +39,7 @@ public class AddActivity extends AppCompatActivity {
         values.put("amount", edamount);
 
         long dbResult = dbHelper.getWritableDatabase().insert("exp", null, values);
+
         Log.d("db Log:", dbResult+"");
 
     }
