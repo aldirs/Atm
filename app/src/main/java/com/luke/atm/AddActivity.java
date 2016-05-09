@@ -12,6 +12,6 @@ public class AddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add);
     }
     public void add(View v){
-//
+////
     }
 }
