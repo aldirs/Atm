@@ -126,8 +126,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemSele
     }
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//實作多個同方法時所採用的方式
+    public void onItemClick(AdapterView<?> parent, View view, int position, long itemId) { //position 抓位置
+//實作多個同方法時所採用的方式                                                               //Long 抓itemId 要轉型int
 //        int parentId = parent.getId();
 //        switch (parentId){
 //            case R.id.gridView:
@@ -135,16 +135,16 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemSele
 //            case R.id.listView:
 //                break;
 //        }
-        switch (position){
-            case 0:
+        switch ((int)itemId){        //GridView
+            case R.drawable.icon_list:
                 break;
-            case 1:
+            case R.drawable.icon_money:
                 break;
-            case 2:
+            case R.drawable.icon_news:
                 break;
-            case 3:
+            case R.drawable.icon_quit:
                 break;
-            case 4:
+            case R.drawable.icon_search:
                 finish();
                 break;
         }
@@ -163,7 +163,8 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemSele
 
         @Override
         public long getItemId(int position) {
-            return position; //給position
+
+            return icons[position]; //給position
         }
 
         @Override
