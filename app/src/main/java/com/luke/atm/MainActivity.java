@@ -139,6 +139,7 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemSele
             case R.drawable.icon_list:
                 break;
             case R.drawable.icon_money:
+                startActivity(new Intent(MainActivity.this, FinanceActivity.class));
                 break;
             case R.drawable.icon_news:
                 break;
