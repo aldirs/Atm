@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.Calendar;
 
 public class AddActivity extends AppCompatActivity {
 
@@ -20,7 +23,13 @@ public class AddActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add);
 
         findViews();
-        dbHelper = new MyDBHelper(this);  //寫在建構子上面的Default Value
+        Calendar now = Calendar.getInstance();
+        Log.d("Calendar", now.toString());
+        Log.d("Year", ""+now.get(Calendar.YEAR));
+        Log.d("Month", ""+(now.get(Calendar.MONTH)+1));
+        Log.d("Date", ""+now.get(Calendar.DAY_OF_MONTH));
+
+        dbHelper = MyDBHelper.getInstance(this);  //寫在建構子上面的Default Value
     }
 
     private void findViews() {
@@ -39,8 +48,11 @@ public class AddActivity extends AppCompatActivity {
         values.put("amount", edamount);
 
         long dbResult = dbHelper.getWritableDatabase().insert("exp", null, values);
-
+        //回傳-1 就是失敗, 任一值為成功
         Log.d("db Log:", dbResult+"");
+        if (dbResult != -1){
+            Toast.makeText(AddActivity.this,"Success", Toast.LENGTH_LONG).show();
+        }
 
     }
 }
